@@ -3,8 +3,8 @@ import React, { useState } from "react";
 const App = () => {
   const [todo, setToDo] = useState("");
   const [lists, setLists] = useState([]);
-
-  const handleAddToList = () => {
+const handleAddToList = (event) => {
+    event.preventDefault()
     setLists((oldList) => [...oldList, todo]);
     setToDo("");
   };
@@ -13,9 +13,10 @@ const App = () => {
   };
   return (
     <div>
+      <form>
       <input type="text" value={todo} onChange={changeHandler} />
-      <button onClick={handleAddToList}>Add to list</button>
-
+      <button  onClick={(e) => handleAddToList(e)}>Add to list</button>
+      </form>
       <ul>
         {lists.map((list, index) => (
           <div key={index}>
