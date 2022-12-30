@@ -1,2 +1,1 @@
-# reactProject
-TO Do List App using React
+To-Do List App using React
