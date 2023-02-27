@@ -14,6 +14,12 @@ const handleAddToList = (event) => {
   const handleDelete =(newList)=>{
     setLists(oldList => oldList.filter(list => list!==newList))
   }
+  
+   const handleKeyDown = (event) =>{
+    if (event.key === 'Enter'){
+      handleAddToList()
+    }
+  }
 
   return (
     <div className="App">
@@ -21,6 +27,7 @@ const handleAddToList = (event) => {
       <input type="text" 
              value={todo} 
              onChange={(e)=>setToDo(e.target.value)}
+             onKeyDown={handleKeyDown}
       />
       <button 
             onClick={(e) => handleAddToList(e)}>Add to List
